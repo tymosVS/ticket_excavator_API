@@ -1,0 +1,2 @@
+class RequestHandllerController < ApplicationController
+end
