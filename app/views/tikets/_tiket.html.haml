@@ -1,0 +1,19 @@
+.tiket
+  %p
+  - if lot
+    = link_to tiket_path(tiket) do
+      = tiket.request_number
+  - else
+    = tiket.request_number
+  %p
+    = tiket.sequence_number
+  %p
+    = tiket.request_type
+  %p
+    = tiket.response_due_date_time
+  %p
+    = tiket.primary_service_area_code
+  %p
+    = tiket.additional_service_area_codes
+  %p
+    = tiket.dig_site_info

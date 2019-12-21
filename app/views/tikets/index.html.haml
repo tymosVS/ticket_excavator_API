@@ -1,0 +1,5 @@
+.tikets-index
+  %h1 Tikets
+  .tikets
+    - @tikets.each do |tiket|
+      = render 'tiket', tiket: tiket, lot: true
