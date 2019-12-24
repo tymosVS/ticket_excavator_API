@@ -7,6 +7,7 @@ class TiketsController < ApplicationController
 
   def show
     @tiket = Tiket.find(params[:id])
+    @excavator = @tiket.excavator
     dig_site_info
   end
 
@@ -18,6 +19,9 @@ class TiketsController < ApplicationController
   end
 
   def dig_site_info
-    gon.points = @tiket[:dig_site_info].match(/\((?<points>(\-?\d+(\.\d+)?\s\-?\d+(\.\d+)?(\,)?)+)/)[:points].split(',').map { |a| a.split(' ') }
+    reg_coordinates = /\((?<points>(\-?\d+(\.\d+)?\s\-?\d+(\.\d+)?(\,)?)+)/
+    gon.points = @tiket[:dig_site_info].match(reg_coordinates)[:points].split(',').map do |point|
+      point.split(' ')
+    end
   end
 end

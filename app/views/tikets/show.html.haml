@@ -1,5 +1,7 @@
 .tikets-show
   %h1 Tiket info
   = render 'tiket', tiket: @tiket, lot: false
+  = render 'excavators/excavator', excavator: @excavator
   #map
+
   = link_to 'Back', tikets_path

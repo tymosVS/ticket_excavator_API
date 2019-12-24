@@ -44,7 +44,7 @@ $(document).on('turbolinks:load', function() {
       'https://image.flaticon.com/icons/png/512/1275/1275502.png',
       function(error, image) {
         if (error) throw error;
-        map.addImage('cat', image);
+        map.addImage('exc', image);
         map.addLayer({
         'id': 'points',
         'type': 'symbol',
@@ -56,7 +56,7 @@ $(document).on('turbolinks:load', function() {
           }
         },
         'layout': {
-        'icon-image': 'cat',
+        'icon-image': 'exc',
         'icon-size': 0.09,
         }
         });
