@@ -20,7 +20,6 @@ class RequestHandllerController < ApplicationController
         state: params[:Excavator][:State],
         zip: params[:Excavator][:Zip],
         crew_on_site: params[:Excavator][:CrewOnsite] == 'true',
-        # tiket: tiket
       )
     end
   end
