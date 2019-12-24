@@ -20,12 +20,12 @@ $(document).on('turbolinks:load', function() {
   var map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/streets-v11',
-    center: [-81.13390268058475, 32.07206917625161],
+    center: [+gon.points[0][0], +gon.points[0][1]],
     zoom: 10
   });
 
   let imagable = [];
-
+  let area = [];
   for (let i=0; i < gon.points.length; ++i){
     imagable.push(
       {
@@ -36,6 +36,7 @@ $(document).on('turbolinks:load', function() {
         }
       }
     )
+    area.push([+gon.points[i][0], +gon.points[i][1]])
   }
 
   map.on('load', function() {
@@ -52,57 +53,6 @@ $(document).on('turbolinks:load', function() {
           'data': {
             'type': 'FeatureCollection',
             'features': imagable
-            // [
-              // {
-              //     'type': 'Feature',
-              //     'geometry': {
-              //       'type': 'Point',
-              //       'coordinates': [-81.13390268058475, 32.07206917625161],
-              //     }
-              // },
-              // {
-              //   'type': 'Feature',
-              //   'geometry': {
-              //     'type': 'Point',
-              //     'coordinates': [-81.08858407706913, 32.02259853170128],
-              //   }
-              // },
-              // {
-              //   'type': 'Feature',
-              //   'geometry': {
-              //     'type': 'Point',
-              //     'coordinates': [-81.05047525138554, 32.042681017283066],
-              //   }
-              // },
-              // {
-              //   'type': 'Feature',
-              //   'geometry': {
-              //     'type': 'Point',
-              //     'coordinates': [-81.0319358226746, 32.06537765335268],
-              //   }
-              // },
-              // {
-              //   'type': 'Feature',
-              //   'geometry': {
-              //     'type': 'Point',
-              //     'coordinates': [-81.08858407706913, 32.02259853170128],
-              //   }
-              // },
-              // {
-              //   'type': 'Feature',
-              //   'geometry': {
-              //     'type': 'Point',
-              //     'coordinates': [-81.05322183341679, 32.02434500961698],
-              //   }
-              // },
-            //   {
-            //     'type': 'Feature',
-            //     'geometry': {
-            //       'type': 'Point',
-            //       'coordinates': [+gon.points[0][0], +gon.points[0][1]]
-            //     }
-            //   }
-            // ]
           }
         },
         'layout': {
@@ -122,15 +72,9 @@ $(document).on('turbolinks:load', function() {
           'geometry': {
             'type': 'Polygon',
             'coordinates': 
-            [[
-              [-81.13390268058475, 32.07206917625161],
-              [-81.0319358226746, 32.06537765335268],
-              [-81.05047525138554, 32.042681017283066],
-              [-81.05322183341679, 32.02434500961698],
-              [-81.08858407706913, 32.02259853170128],
-              [-81.14660562247929, 32.04064386441295],
-              [-81.13390268058475, 32.07206917625161]
-            ]]
+            [
+              area
+            ]
           }
         }
       },
