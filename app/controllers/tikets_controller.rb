@@ -1,5 +1,5 @@
 class TiketsController < ApplicationController
-  before_action :mapbox_key, only: [:show]
+  before_action :mapbox_key
 
   def index
     @tikets = Tiket.all
@@ -15,7 +15,6 @@ class TiketsController < ApplicationController
 
   def mapbox_key
     gon.map = ENV['MAPBOX_KEY']
-    
   end
 
   def dig_site_info

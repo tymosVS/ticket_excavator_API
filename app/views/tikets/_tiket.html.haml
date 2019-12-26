@@ -1,20 +1,38 @@
 .tiket
-  %p
-  - if lot
-    = link_to tiket_path(tiket) do
+  .title
+    - if !lot
+      %h3 Tiket info
+  .info
+    %p
+      %span
+        Request number
+    - if lot
+      = link_to tiket_path(tiket) do
+        = tiket.request_number
+    - else
       = tiket.request_number
-  - else
-    = tiket.request_number
-  %p
-    = tiket.sequence_number
-  %p
-    = tiket.request_type
-  %p
-    = tiket.response_due_date_time
-  %p
-    = tiket.primary_service_area_code
-  %p
-    = tiket.additional_service_area_codes
-  %p
-  - if lot
-    = tiket.dig_site_info
+    %p
+      %span
+        Sequence number
+      = tiket.sequence_number
+    %p
+      %span
+        Request type
+      = tiket.request_type
+    %p
+      %span
+        Response due date time
+      = tiket.response_due_date_time
+    %p
+      %span
+        Primary service area code:
+      = tiket.primary_service_area_code
+    %p
+      %span
+        Additional service area codes:
+      = tiket.additional_service_area_codes
+    %p
+    - if lot
+      %span
+        Dig site info:
+      = tiket.dig_site_info
