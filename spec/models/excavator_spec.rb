@@ -5,7 +5,7 @@ RSpec.describe Excavator, type: :model do
     %i[
       company_name
       address
-      sity
+      city
       state
       zip
       crew_on_site
@@ -21,7 +21,7 @@ RSpec.describe Excavator, type: :model do
     %i[
       company_name
       address
-      sity
+      city
       state
       zip
     ].each do |field|
@@ -46,7 +46,21 @@ RSpec.describe Excavator, type: :model do
     ].each do |field|
       it { is_expected.to have_db_column(field).of_type(:datetime) }
     end
+  end
 
-
+  context 'Validations' do
+    context 'Presence fields' do
+      %i[
+        company_name
+      address
+      city
+      state
+      zip
+      crew_on_site
+      tiket_id
+      ].each do |field|
+        it { is_expected.to validate_presence_of(field) }
+      end
+    end
   end
 end
