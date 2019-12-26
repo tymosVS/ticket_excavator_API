@@ -1,13 +1,28 @@
-.excavotor
-  %p
-    = excavator.company_name
-  %p
-    = excavator.address
-  %p
-  = excavator.sity
-  %p
-    = excavator.state
-  %p
-    = excavator.zip
-  %p
-  = excavator.crew_on_site
+.excavator
+  .title
+    %h3 Excavator
+  .info
+    %p
+      %span
+        Company name
+      = excavator.company_name
+    %p
+      %span
+        Address:
+      = excavator.address
+    %p
+      %span
+        City:
+    = excavator.city
+    %p
+      %span
+        State:
+      = excavator.state
+    %p
+      %span
+        Zip:
+      = excavator.zip
+    %p
+      %span
+        Crew on site:
+      = excavator.crew_on_site
