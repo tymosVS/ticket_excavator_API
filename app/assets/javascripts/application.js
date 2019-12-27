@@ -16,7 +16,8 @@
 //= require_tree .
 
 $(document).on('turbolinks:load', function() {
-  mapboxgl.accessToken = gon.map;
+  if (gon.points != undefined) {
+    mapboxgl.accessToken = gon.map;
   var map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/streets-v11',
@@ -85,4 +86,6 @@ $(document).on('turbolinks:load', function() {
       }
       });
   });
+  }
+  
 });

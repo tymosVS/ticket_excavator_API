@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Controller for tickets
 class TiketsController < ApplicationController
   before_action :mapbox_key
 
@@ -19,7 +22,8 @@ class TiketsController < ApplicationController
 
   def dig_site_info
     reg_coordinates = /\((?<points>(\-?\d+(\.\d+)?\s\-?\d+(\.\d+)?(\,)?)+)/
-    gon.points = @tiket[:dig_site_info].match(reg_coordinates)[:points].split(',').map do |point|
+    points_list = @tiket[:dig_site_info].match(reg_coordinates)[:points]
+    gon.points = points_list.split(',').map do |point|
       point.split(' ')
     end
   end

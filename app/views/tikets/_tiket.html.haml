@@ -5,7 +5,7 @@
   .info
     %p
       %span
-        Request number
+        Request number:
     - if lot
       = link_to tiket_path(tiket) do
         = tiket.request_number
@@ -13,15 +13,15 @@
       = tiket.request_number
     %p
       %span
-        Sequence number
+        Sequence number:
       = tiket.sequence_number
     %p
       %span
-        Request type
+        Request type:
       = tiket.request_type
     %p
       %span
-        Response due date time
+        Response due date time:
       = tiket.response_due_date_time
     %p
       %span
