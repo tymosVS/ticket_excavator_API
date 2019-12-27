@@ -211,5 +211,27 @@ RSpec.describe RequestHandllerController, type: :controller do
         end.to change(model, :count).by(0)
       end
     end
+
+    it 'Contain tiket instance variable' do
+      post :create, params: valid_param
+      expect(@controller.instance_variable_get(:@tiket).class).to eq(Tiket)
+    end
+
+    it 'Contain excavator instance variable' do
+      post :create, params: valid_param
+      expect(@controller.instance_variable_get(:@excavator).class).to eq(Excavator)
+    end
+
+    it 'Contain tiket instance variable if dont valid tiket' do
+      valid_param[:RequestType] = ''
+      post :create, params: valid_param
+      expect(@controller.instance_variable_get(:@tiket).class).to eq(Tiket)
+    end
+
+    it 'not contain excavator instance variable if dont valid tiket' do
+      valid_param[:RequestType] = ''
+      post :create, params: valid_param
+      expect(@controller.instance_variable_get(:@excavator).class).to_not eq(Excavator)
+    end
   end
 end
