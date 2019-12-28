@@ -42,6 +42,8 @@ group :development, :test do
   gem 'rspec-rails', ">= 2.0.0.beta"
   gem 'factory_bot_rails'
   gem 'shoulda-matchers'
+  gem 'rails-controller-testing'
+  gem 'database_cleaner', '~> 1.7'
 end
 
 group :development do
