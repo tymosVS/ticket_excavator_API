@@ -55,7 +55,7 @@ RSpec.describe RequestHandllerController, type: :controller do
       end
     end
 
-    it 'Dont save tiket if excavator empty' do
+    it do
       expect do
         valid_param[:Excavator] = {}
         post :create, params: valid_param
@@ -80,7 +80,7 @@ RSpec.describe RequestHandllerController, type: :controller do
       end
     end
 
-    it 'Dont create ticket without RequestType' do
+    it 'empty DateTimes raise error' do
       expect do
         valid_param[:DateTimes] = {}
         post :create, params: valid_param
@@ -96,14 +96,14 @@ RSpec.describe RequestHandllerController, type: :controller do
       end
     end
 
-    it 'Dont create ticket without RequestType' do
+    it 'empty ServiceArea raise error' do
       expect do
         valid_param[:ServiceArea] = { }
         post :create, params: valid_param
       end.to raise_error(NoMethodError)
     end
 
-    it 'Dont create ticket without RequestType' do
+    it 'empty PrimaryServiceAreaCode raise error' do
       expect do
         valid_param[:ServiceArea][:PrimaryServiceAreaCode] = {}
         post :create, params: valid_param
@@ -119,7 +119,7 @@ RSpec.describe RequestHandllerController, type: :controller do
       end
     end
 
-    it 'Dont create ticket without RequestType' do
+    it 'empty AdditionalServiceAreaCodes raise error' do
       expect do
         valid_param[:ServiceArea][:AdditionalServiceAreaCodes] = {}
         post :create, params: valid_param
@@ -135,14 +135,14 @@ RSpec.describe RequestHandllerController, type: :controller do
       end
     end
 
-    it 'Dont create ticket without RequestType' do
+    it 'empty ExcavationInfo raise error' do
       expect do
         valid_param[:ExcavationInfo] = {}
         post :create, params: valid_param
       end.to raise_error(NoMethodError)
     end
 
-    it 'Dont create ticket without RequestType' do
+    it 'empty DigsiteInfo raise error' do
       expect do
         valid_param[:ExcavationInfo][:DigsiteInfo] = {}
         post :create, params: valid_param
