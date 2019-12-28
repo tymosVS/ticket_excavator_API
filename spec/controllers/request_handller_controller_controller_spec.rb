@@ -80,11 +80,13 @@ RSpec.describe RequestHandllerController, type: :controller do
       end
     end
 
-    it 'empty DateTimes raise error' do
-      expect do
-        valid_param[:DateTimes] = {}
-        post :create, params: valid_param
-      end.to raise_error(NoMethodError)
+    [Tiket, Excavator].each do |model|
+      it do
+        expect do
+          valid_param[:DateTimes] = {}
+          post :create, params: valid_param
+        end.to change(model, :count).by(0)
+      end
     end
 
     [Tiket, Excavator].each do |model|
@@ -96,18 +98,22 @@ RSpec.describe RequestHandllerController, type: :controller do
       end
     end
 
-    it 'empty ServiceArea raise error' do
-      expect do
-        valid_param[:ServiceArea] = { }
-        post :create, params: valid_param
-      end.to raise_error(NoMethodError)
+    [Tiket, Excavator].each do |model|
+      it do
+        expect do
+          valid_param[:ServiceArea] = { }
+          post :create, params: valid_param
+        end.to change(model, :count).by(0)
+      end
     end
 
-    it 'empty PrimaryServiceAreaCode raise error' do
-      expect do
-        valid_param[:ServiceArea][:PrimaryServiceAreaCode] = {}
-        post :create, params: valid_param
-      end.to raise_error(NoMethodError)
+    [Tiket, Excavator].each do |model|
+      it do
+        expect do
+          valid_param[:ServiceArea][:PrimaryServiceAreaCode] = {}
+          post :create, params: valid_param
+        end.to change(model, :count).by(0)
+      end
     end
     
     [Tiket, Excavator].each do |model|
@@ -119,11 +125,13 @@ RSpec.describe RequestHandllerController, type: :controller do
       end
     end
 
-    it 'empty AdditionalServiceAreaCodes raise error' do
-      expect do
-        valid_param[:ServiceArea][:AdditionalServiceAreaCodes] = {}
-        post :create, params: valid_param
-      end.to raise_error(NoMethodError)
+    [Tiket, Excavator].each do |model|
+      it do
+        expect do
+          valid_param[:ServiceArea][:AdditionalServiceAreaCodes] = {}
+          post :create, params: valid_param
+        end.to change(model, :count).by(0)
+      end
     end
 
     [Tiket, Excavator].each do |model|
@@ -135,18 +143,22 @@ RSpec.describe RequestHandllerController, type: :controller do
       end
     end
 
-    it 'empty ExcavationInfo raise error' do
-      expect do
-        valid_param[:ExcavationInfo] = {}
-        post :create, params: valid_param
-      end.to raise_error(NoMethodError)
+    [Tiket, Excavator].each do |model|
+      it do
+        expect do
+          valid_param[:ExcavationInfo] = {}
+          post :create, params: valid_param
+        end.to change(model, :count).by(0)
+      end
     end
 
-    it 'empty DigsiteInfo raise error' do
-      expect do
-        valid_param[:ExcavationInfo][:DigsiteInfo] = {}
-        post :create, params: valid_param
-      end.to raise_error(NoMethodError)
+    [Tiket, Excavator].each do |model|
+      it do
+        expect do
+          valid_param[:ExcavationInfo][:DigsiteInfo] = {}
+          post :create, params: valid_param
+        end.to change(model, :count).by(0)
+      end
     end
 
     [Tiket, Excavator].each do |model|

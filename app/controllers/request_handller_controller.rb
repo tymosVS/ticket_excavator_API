@@ -5,6 +5,7 @@ class RequestHandllerController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def create
+    head 422 and return unless check_tiket?
     register_tiket
     head 422 and return unless @tiket.save
     register_excavator
@@ -35,5 +36,14 @@ class RequestHandllerController < ApplicationController
       crew_on_site: params[:Excavator][:CrewOnsite] == 'true',
       tiket: @tiket
     )
+  end
+
+  def check_tiket?
+    params[:DateTimes] != nil &&
+    params[:ServiceArea] != nil &&
+    params[:ServiceArea][:PrimaryServiceAreaCode] != nil &&
+    params[:ServiceArea][:AdditionalServiceAreaCodes] != nil &&
+    params[:ExcavationInfo] != nil &&
+    params[:ExcavationInfo][:DigsiteInfo] != nil
   end
 end
