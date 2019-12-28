@@ -6,9 +6,9 @@ class RequestHandllerController < ApplicationController
 
   def create
     register_tiket
-    return unless @tiket.save
+    head 422 and return unless @tiket.save
     register_excavator
-    @tiket.destroy unless @excavator.save
+    head 422 and @tiket.destroy unless @excavator.save
   end
 
   private
