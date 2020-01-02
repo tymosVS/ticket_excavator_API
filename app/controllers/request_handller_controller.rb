@@ -40,10 +40,14 @@ class RequestHandllerController < ApplicationController
 
   def check_tiket?
     params[:DateTimes] != nil &&
+    params[:DateTimes].class == Hash &&
     params[:ServiceArea] != nil &&
     params[:ServiceArea][:PrimaryServiceAreaCode] != nil &&
+    params[:ServiceArea][:PrimaryServiceAreaCode].class == Hash &&
     params[:ServiceArea][:AdditionalServiceAreaCodes] != nil &&
+    params[:ServiceArea][:AdditionalServiceAreaCodes].class == Hash &&
     params[:ExcavationInfo] != nil &&
-    params[:ExcavationInfo][:DigsiteInfo] != nil
+    params[:ExcavationInfo][:DigsiteInfo] != nil &&
+    params[:ExcavationInfo].class == Hash
   end
 end
